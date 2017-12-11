@@ -8,7 +8,7 @@ import socket
 class hello:
 
   def GET(self):
-    return json.dumps({'msg': 'hello thereeee from ' + socket.gethostname()})
+    return json.dumps({'msg': 'hello from ' + socket.gethostname()})
 
 
 if __name__ == '__main__':
