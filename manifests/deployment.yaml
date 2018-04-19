@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: web
-        image: 'gcr.io/ncbi-prodnot/example-service:${ scmInfo.branch }-${ scmInfo.sha1 }'
+        image: gcr.io/ncbi-prodnot/example-service #:${ scmInfo.branch }-${ scmInfo.sha1 }'
 ---
 kind: Service
 apiVersion: v1
