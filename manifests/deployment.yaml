@@ -1,0 +1,33 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: '${ scmInfo.branch }'
+  name: example-service
+  labels:
+    app: example-service
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: example-service
+  template:
+    metadata:
+      labels:
+        app: example-service
+    spec:
+      containers:
+      - name: web
+        image: 'gcr.io/ncbi-prodnot/example-service:${ scmInfo.branch }-${ scmInfo.sha1 }'
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: example-service
+spec:
+  selector:
+    app: example-service
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
