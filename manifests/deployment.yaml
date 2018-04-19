@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: '${ scmInfo.branch }'
+  namespace: '${ trigger["source"]["repoSource"]["branchName"] }'
   name: example-service
   labels:
     app: example-service
@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: web
-        image: gcr.io/ncbi-prodnot/example-service #:${ scmInfo.branch }-${ scmInfo.sha1 }'
+        image: '${ trigger["artifacts"]["images"][0] }'
 ---
 kind: Service
 apiVersion: v1
