@@ -14,7 +14,7 @@ class hostname:
 class env_vars:
 
   def GET(self):
-    return json.dumps(os.environ)
+    return str(os.environ)
 
 class time:
 
