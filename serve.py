@@ -9,7 +9,7 @@ import datetime
 class hostname:
 
   def GET(self):
-    return json.dumps({'msg': 'hello from ' + socket.gethostname()})
+    return json.dumps({'msg': 'hi there from ' + socket.gethostname()})
 
 class env_vars:
 
